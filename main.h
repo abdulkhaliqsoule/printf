@@ -32,7 +32,15 @@ int _putchar(char c);
  */
 int _printf(const char *format, ...);
 
+/**
+ * set_buffer - defines a local buffer of 1024 chars
+ * @s: buffer
+ * @x: char to be printed
+ * @index: actual position on buffer
+ * Return: nothing
+*/
 void set_buffer(char *s, char x, int *index);
+
 int (*get_function(char c))(va_list a, char *s, int *index);
 
 /**
