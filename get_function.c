@@ -13,6 +13,7 @@ int(*get_function(char c))(va_list a, char *s, int *index)
 		{'s', print_string},
 		{'i', print_integer},
 		{'d', print_integer},
+		{'%', print_percent},
 		{'\0', NULL}
 	};
 	for (i = 0; ph[i].c != '\0'; i++)
