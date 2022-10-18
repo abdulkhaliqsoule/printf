@@ -1,6 +1,19 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <limits.h>
+/**
+ * struct a - this structure is going to give us the format
+ * @c: the character that is going to give us the respective function
+ * @f: function pointer with va_list argument
+ */
+typedef struct a
+{
+	    char c;
+	    int (*f)(va_list list, char *s, int *index);
+} choose;
 /**
  * _putchar - writes the character c to stdout
  * @c: character to print
@@ -16,20 +29,13 @@ int _putchar(char c);
  * Return: the number of characters printed.
  */
 int _printf(const char *format, ...);
-int print_c(va_list a);
-int print_s(va_list a);
-int print_d(va_list a);
-int print_i(va_list a);
-/**
- * struct place_holder - struct for place holders
- * @c: character to check
- * @f: function to point to.
- */
-typedef struct place_holder
-{
-	char *c;
-	int (*f)(va_list a);
-} ph;
+int _putchar(char c);
+void set_buffer(char *s, char x, int *index);
+int (*get_function(char c))(va_list a, char *s, int *index);
+int print_char(va_list a, char *s, int *index);
+int print_string(va_list a, char *s, int *index);
+int print_percent(va_list a, char *s, int *index);
+int print_integer(va_list a, char *s, int *index);
 
 #endif
 
